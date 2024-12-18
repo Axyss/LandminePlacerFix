@@ -1,50 +1,38 @@
-# LandminePlacer
-A lethal company mod that add a new item for placing landmine.
+# LandminePlacerFix 🛠️
+A Lethal Company mod that adds the **Landmine Placer**, a new item for placing landmines and ending long-lasting friendships.
+
+## Important ⚠️
+This project is a fork of [LandminePlacer by alexandre-v1](https://github.com/alexandre-v1/LandminePlacer), which is no longer
+actively developed and is incompatible with newer versions of [LethalLib by Evaisa](https://thunderstore.io/c/lethal-company/p/Evaisa/LethalLib/). LandminePlacerFix addresses these issues, as well as any 
+future ones that might prevent the mod from working as intended.
+
+Please take into account that no **new** features will be added.
 
 
-## Mod link
-### Thunderstore: [LandminePlacer on Thunderstore](https://thunderstore.io/c/lethal-company/p/alexandre_v1/LandMinePlacer/)
-### Github: [LandminePlacer on Github](https://github.com/alexandre-v1/LandminePlacer)
-
-
-## Must know
-This mod should be compatible with other mods that modify the landmine.
-It might not work with mods that completely remove the base landmine.
-
-(Note: The landmine instance is saved the first time a player places a landmine.)
-
-
-## Work with
-- [SuperLandmine by phawitpp](https://thunderstore.io/c/lethal-company/p/phawitpp/SuperLandmine/)
-
-
-## Config 
-#### Only host config matter.
+## Configuration
 ### InfiniteLandmines
-    Choose if you can place unlimited landmines.
+    Choose whether players can place unlimited landmines or not.
     Options: true = unlimited, false = limited by MaxLandmines
     Default: false
 
 ### MaxLandmines 
-    Set the maximum number of landmines you can place with one Landmine Placer.
-    (only matters if you don't have infinite landmines).
+    Set the maximum number of landmines a player can place with one Landmine Placer.
+    (Only matters if you don't have infinite landmines).
     Default: 1
 
 ### LandminePlacerSpawnChance
-    Adjust how often you find Landmine Placer item.
+    Adjust how often Landmine Placer items are found.
     Higher Number: Find them more often
-    Default: 40
+    Default: 80
 
 ### LandminePlacerInShop
-    Whether or not the LandminePlacer should be in the shop, true = in shop, false = not in shop
+    Whether or not the LandminePlacer should be in the shop.
     Options: true = in shop, false = not in shop
     Default: false
 
 ### LandminePlacerShopPrice
     Price of the LandminePlacer in the shop, only used if LandminePlacerInShop is true
     Default: 70
+    
 ## Contact 
-For inquiries or discussions about the mod, please join this specific [discord thread](https://discord.com/channels/1168655651455639582/1191379525137866864).
-(Note: You need to be a member of the [Lethal Company Modding Server](https://discord.com/invite/XeyYqRdRGC) to access the thread.)
-
-If you have tested this mod with other mods, or if you want to share your experiences, please let me know!
+If you are experiencing issues with the mod, I encourage you to open an [issue](https://github.com/Axyss/LandminePlacerFix/issues) explaining your problem.
