@@ -1,8 +1,8 @@
 {
-    "name": "LandMinePlacer",
-    "version_number": "1.0.1",
-    "website_url": "https://github.com/alexandre-v1/LandminePlacer",
-    "author": "alexandre_v1",
+    "name": "LandminePlacerFix",
+    "version_number": "1.0.2",
+    "website_url": "https://github.com/Axyss/LandminePlacerFix",
+    "author": "Axyss",
     "description": "Add a new item for placing landmine in Lethal Company",
-    "dependencies": ["Evaisa-LethalLib-0.10.0"]
+    "dependencies": [ "BepInEx-BepInExPack-5.4.2100", "Evaisa-LethalLib-0.16.2" ]
 }
