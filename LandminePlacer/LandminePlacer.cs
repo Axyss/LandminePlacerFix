@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Reflection;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -164,42 +165,10 @@ public class LandminePlacer : PhysicsProp
     
     public void InitProperties(PhysicsProp prop)
     {
-        // Initialise PlaceableLandmine properties with PhysicsProp ones
-        grabbable = prop.grabbable;
-        isHeld = prop.isHeld;
-        isHeldByEnemy = prop.isHeldByEnemy;
-        deactivated = prop.deactivated;
-        parentObject = prop.parentObject;
-        targetFloorPosition = prop.targetFloorPosition;
-        startFallingPosition = prop.startFallingPosition;
-        floorYRot = prop.floorYRot;
-        fallTime = prop.fallTime;
-        hasHitGround = prop.hasHitGround;
-        scrapValue = prop.scrapValue;
-        itemUsedUp = prop.itemUsedUp;
-        playerHeldBy = prop.playerHeldBy;
-        isPocketed = prop.isPocketed;
-        isBeingUsed = prop.isBeingUsed;
-        isInElevator = prop.isInElevator;
-        isInShipRoom = prop.isInShipRoom;
-        isInFactory = prop.isInFactory;
-        useCooldown = prop.useCooldown;
-        currentUseCooldown = prop.currentUseCooldown;
-        itemProperties = prop.itemProperties;
-        insertedBattery = prop.insertedBattery;
-        customGrabTooltip = prop.customGrabTooltip;
-        propBody = prop.propBody;
-        propColliders = prop.propColliders;
-        originalScale = prop.originalScale;
-        wasOwnerLastFrame = prop.wasOwnerLastFrame;
-        mainObjectRenderer = prop.mainObjectRenderer;
-        isSendingItemRPC = prop.isSendingItemRPC;
-        scrapPersistedThroughRounds = prop.scrapPersistedThroughRounds;
-        heldByPlayerOnServer = prop.heldByPlayerOnServer;
-        radarIcon = prop.radarIcon;
-        reachedFloorTarget = prop.reachedFloorTarget;
-        grabbableToEnemies = prop.grabbableToEnemies;
-        hasBeenHeld = prop.hasBeenHeld;
+        foreach (var field in typeof(GrabbableObject).GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
+        {
+            field.SetValue(this, field.GetValue(prop));
+        }
     }
     
     public override string __getTypeName() => nameof(LandminePlacer);
