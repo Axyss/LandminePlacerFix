@@ -3,8 +3,8 @@ A Lethal Company mod that adds the **Landmine Placer**, a new item for placing l
 
 ## Important ⚠️
 This project is a fork of [LandminePlacer by alexandre-v1](https://github.com/alexandre-v1/LandminePlacer), which is no longer
-actively developed and is incompatible with newer versions of [LethalLib by Evaisa](https://thunderstore.io/c/lethal-company/p/Evaisa/LethalLib/). LandminePlacerFix addresses these issues, as well as any 
-future ones that might prevent the mod from working as intended.
+actively developed and is incompatible with newer versions of [LethalLib](https://thunderstore.io/c/lethal-company/p/Evaisa/LethalLib/). This project addresses these issues, as well as any 
+future ones that might prevent the mod from working as originally intended.
 
 Please take into account that no **new** features will be added.
 
