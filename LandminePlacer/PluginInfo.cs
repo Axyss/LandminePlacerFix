@@ -4,6 +4,6 @@ namespace LandminePlacer
     {
         public const string PluginGuid = "Axyss.LandminePlacerFix";
         public const string PluginName = "Landmine Placer Fix";
-        public const string PluginVersion = "1.0.2";
+        public const string PluginVersion = "1.0.4";
     }
 }
