@@ -55,12 +55,8 @@
 		<!-- Copy DLL -->
 		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ThunderstoreStaging)" />
 
-		<!-- Copy any extra assets (if present) -->
-		<ItemGroup>
-			<ThunderstoreAssets Include="$(ThunderstoreSource)\landmine_placer\**\*" />
-		</ItemGroup>
-		<Copy SourceFiles="@(ThunderstoreAssets)"
-			  DestinationFiles="@(ThunderstoreAssets->'$(ThunderstoreStaging)\%(RecursiveDir)%(Filename)%(Extension)')" />
+		<!-- Copy AssetBundle file -->
+		<Copy SourceFiles="$(ThunderstoreSource)\landmine_placer" DestinationFolder="$(ThunderstoreStaging)" />
 
 		<!-- Zip the staging folder -->
 		<MakeDir Directories="$(ThunderstoreDist)" />

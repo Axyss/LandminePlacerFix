@@ -1,5 +1,5 @@
 ## 1.0.4
-- Compatibility with v80
+- Compatibility with v81
 - Updated LethalLib version to 1.2.0
 
 ## 1.0.3
