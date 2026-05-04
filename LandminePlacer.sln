@@ -1,5 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Thunderstore", "Thunderstore", "{F1234567-1234-1234-1234-123456789ABC}"
+	ProjectSection(SolutionItems) = preProject
+		Thunderstore\manifest.json = Thunderstore\manifest.json
+		Thunderstore\icon.png = Thunderstore\icon.png
+		Thunderstore\CHANGELOG.md = Thunderstore\CHANGELOG.md
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LandminePlacer", "LandminePlacer\LandminePlacer.csproj", "{E3410D17-76FD-42DB-9C78-C7BC2ACB5D4B}"
 EndProject
 Global

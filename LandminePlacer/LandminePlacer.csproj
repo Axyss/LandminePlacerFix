@@ -26,6 +26,54 @@
 	<Target Name="NetcodePatch" AfterTargets="PostBuildEvent">
 		<Exec Command="netcode-patch -uv 2022.3.62 -nv 1.12.2 -tv 1.0.0 &quot;$(TargetPath)&quot; @(ReferencePathWithRefAssemblies->'&quot;%(Identity)&quot;', ' ')"/>
 	</Target>
+
+	<!-- ===== Thunderstore Pack Target ===== -->
+	<!--
+		Usage: dotnet build -t:ThunderstorePack
+		Output: $(SolutionDir)dist\LandminePlacer-<version>.zip
+	-->
+	<Target Name="ThunderstorePack" AfterTargets="NetcodePatch">
+
+		<!-- Staging directory -->
+		<PropertyGroup>
+			<ThunderstoreStaging>$(MSBuildProjectDirectory)\..\dist\_staging</ThunderstoreStaging>
+			<ThunderstoreDist>$(MSBuildProjectDirectory)\..\dist</ThunderstoreDist>
+			<ThunderstoreSource>$(MSBuildProjectDirectory)\..\Thunderstore</ThunderstoreSource>
+			<ZipName>LandminePlacer-$(Version).zip</ZipName>
+		</PropertyGroup>
+
+		<!-- Clean staging -->
+		<RemoveDir Directories="$(ThunderstoreStaging)" />
+		<MakeDir Directories="$(ThunderstoreStaging)" />
+
+		<!-- Copy metadata files -->
+		<Copy SourceFiles="$(ThunderstoreSource)\manifest.json" DestinationFolder="$(ThunderstoreStaging)" />
+		<Copy SourceFiles="$(ThunderstoreSource)\icon.png"      DestinationFolder="$(ThunderstoreStaging)" />
+		<Copy SourceFiles="$(MSBuildProjectDirectory)\..\README.md" DestinationFolder="$(ThunderstoreStaging)" />
+		<Copy SourceFiles="$(ThunderstoreSource)\CHANGELOG.md"  DestinationFolder="$(ThunderstoreStaging)" />
+
+		<!-- Copy DLL -->
+		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ThunderstoreStaging)" />
+
+		<!-- Copy any extra assets (if present) -->
+		<ItemGroup>
+			<ThunderstoreAssets Include="$(ThunderstoreSource)\landmine_placer\**\*" />
+		</ItemGroup>
+		<Copy SourceFiles="@(ThunderstoreAssets)"
+			  DestinationFiles="@(ThunderstoreAssets->'$(ThunderstoreStaging)\%(RecursiveDir)%(Filename)%(Extension)')" />
+
+		<!-- Zip the staging folder -->
+		<MakeDir Directories="$(ThunderstoreDist)" />
+		<Delete Files="$(ThunderstoreDist)\$(ZipName)" />
+		<Exec Command="powershell -NoProfile -Command &quot;Compress-Archive -Path '$(ThunderstoreStaging)\*' -DestinationPath '$(ThunderstoreDist)\$(ZipName)' -Force&quot;" />
+
+		<!-- Clean up staging -->
+		<RemoveDir Directories="$(ThunderstoreStaging)" />
+
+		<Message Text="================================================" Importance="High" />
+		<Message Text="Thunderstore package ready: dist\$(ZipName)" Importance="High" />
+		<Message Text="================================================" Importance="High" />
+	</Target>
 	
     <ItemGroup>
       <Reference Include="Assembly-CSharp" Publicize="true">
