@@ -3,6 +3,6 @@
     "version_number": "1.0.4",
     "website_url": "https://github.com/Axyss/LandminePlacerFix",
     "author": "Axyss",
-    "description": "Add a new item for placing landmine in Lethal Company",
+    "description": "Adds a new item for placing landmines in Lethal Company",
     "dependencies": [ "BepInEx-BepInExPack-5.4.2100", "Evaisa-LethalLib-1.2.0" ]
 }
